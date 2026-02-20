@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Controle Financeiro Pessoal</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>💰 Controle Financeiro Pessoal</h1>
+        <p>Gerencie suas receitas e despesas em um só lugar.</p>
+      </header>
+
+      <section class="cards" aria-label="Resumo financeiro">
+        <article class="card">
+          <h2>Saldo</h2>
+          <p id="balance" class="value">R$ 0,00</p>
+        </article>
+        <article class="card income">
+          <h2>Receitas</h2>
+          <p id="income" class="value">R$ 0,00</p>
+        </article>
+        <article class="card expense">
+          <h2>Despesas</h2>
+          <p id="expense" class="value">R$ 0,00</p>
+        </article>
+      </section>
+
+      <section class="panel" aria-label="Novo lançamento">
+        <h2>Novo lançamento</h2>
+        <form id="transaction-form">
+          <div class="field-group">
+            <label for="description">Descrição</label>
+            <input id="description" name="description" type="text" required placeholder="Ex: Salário" />
+          </div>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label for="amount">Valor (R$)</label>
+              <input id="amount" name="amount" type="number" step="0.01" required placeholder="0,00" />
+            </div>
+            <div class="field-group">
+              <label for="type">Tipo</label>
+              <select id="type" name="type" required>
+                <option value="income">Receita</option>
+                <option value="expense">Despesa</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label for="category">Categoria</label>
+            <input id="category" name="category" type="text" required placeholder="Ex: Moradia, Transporte" />
+          </div>
+
+          <button type="submit">Adicionar</button>
+        </form>
+      </section>
+
+      <section class="panel" aria-label="Lançamentos">
+        <div class="section-header">
+          <h2>Lançamentos</h2>
+          <label>
+            Filtro:
+            <select id="filter-type">
+              <option value="all">Todos</option>
+              <option value="income">Somente receitas</option>
+              <option value="expense">Somente despesas</option>
+            </select>
+          </label>
+        </div>
+        <ul id="transaction-list" class="transaction-list"></ul>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

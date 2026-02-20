@@ -1,0 +1,144 @@
+:root {
+  --bg: #0f172a;
+  --panel: #1e293b;
+  --card: #334155;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --income: #22c55e;
+  --expense: #ef4444;
+  --primary: #3b82f6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(180deg, #020617 0%, var(--bg) 100%);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.container {
+  width: min(960px, 92vw);
+  margin: 2rem auto;
+  display: grid;
+  gap: 1rem;
+}
+
+header h1 {
+  margin-bottom: 0.3rem;
+}
+
+header p {
+  margin-top: 0;
+  color: var(--muted);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.8rem;
+}
+
+.card,
+.panel {
+  background: rgba(30, 41, 59, 0.9);
+  border: 1px solid #475569;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.card h2,
+.panel h2 {
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+.value {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card.income .value {
+  color: var(--income);
+}
+
+.card.expense .value {
+  color: var(--expense);
+}
+
+.field-group {
+  display: grid;
+  gap: 0.4rem;
+  margin-bottom: 0.8rem;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+input,
+select,
+button {
+  padding: 0.65rem;
+  border-radius: 8px;
+  border: 1px solid #64748b;
+  background: #0b1220;
+  color: var(--text);
+}
+
+button {
+  cursor: pointer;
+  background: var(--primary);
+  border-color: #2563eb;
+  font-weight: bold;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.transaction-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.transaction-item {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 0.8rem;
+  align-items: center;
+  background: var(--card);
+  border-radius: 8px;
+  padding: 0.7rem;
+}
+
+.transaction-item small {
+  color: var(--muted);
+}
+
+.transaction-amount.income {
+  color: var(--income);
+}
+
+.transaction-amount.expense {
+  color: var(--expense);
+}
+
+.remove-btn {
+  background: transparent;
+  border: 1px solid #94a3b8;
+  padding: 0.4rem 0.6rem;
+}
